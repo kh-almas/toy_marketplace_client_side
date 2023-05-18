@@ -29,13 +29,13 @@ const Header = () => {
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     {
-                        user ? <button onClick={logOutBtn} className="btn">log Out</button>
-                            : <Link to={'/login'} className="btn">login</Link>
+                        user ? <><img className="w-6 h-6 rounded-full mr-2" src={user.photoURL} alt="img"/><button onClick={logOutBtn} className="btn btn-sm">log Out</button></>
+                            : <Link to={'/login'} className="btn btn-sm">login</Link>
                     }
 
                 </div>
                 <div className="lg:hidden navbar-end">
-                    <Link to={'/login'} className="btn">login</Link>
+                    <Link to={'/login'} className="btn btn-sm">login</Link>
                 </div>
                 <div className="navbar-end hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
