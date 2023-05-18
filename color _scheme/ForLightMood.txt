@@ -1,0 +1,42 @@
+Here's a combination of calm and soothing colors combination for different elements of website for light mood. Color shades and tones can change later:
+
+Header:
+Background: bg-teal-300
+Text: text-gray-800
+
+Header Button:
+Background: bg-teal-500
+Text: text-white
+
+Logo:
+Text or Icon Color: text-teal-500
+
+Text:
+Body Text: text-gray-800
+Subheadings: text-teal-500
+
+Border:
+Border Color: border-gray-300
+
+Background for Full Website:
+Overall Background: bg-gray-100
+
+Card:
+Background: bg-white
+Border: border-gray-200
+
+Button (Create):
+Background: bg-teal-500
+Text: text-white
+
+Button (Show):
+Background: bg-blue-500
+Text: text-white
+
+Button (Update):
+Background: bg-yellow-500
+Text: text-white
+
+Button (Delete):
+Background: bg-red-500
+Text: text-white
