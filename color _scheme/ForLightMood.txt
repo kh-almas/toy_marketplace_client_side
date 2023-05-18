@@ -40,3 +40,23 @@ Text: text-white
 Button (Delete):
 Background: bg-red-500
 Text: text-white
+
+
+// form color
+Form Background:
+Light Mode: bg-gray-100
+
+Form Input Background:
+Light Mode: bg-white
+
+Form Input Border:
+Light Mode: border-gray-300
+
+Form Input Text:
+Light Mode: text-gray-800
+
+Form Input Placeholder Text:
+Light Mode: text-gray-400
+
+Form Input Focus Border:
+Light Mode: border-teal-500
