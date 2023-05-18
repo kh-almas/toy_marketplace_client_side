@@ -1,10 +1,11 @@
 import React, {useContext, useState} from 'react';
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import GoogleAuth from "../Shared/SocialAuth/Google/GoogleAuth.jsx";
 import {AuthContext} from "../../Providers/AuthProvider.jsx";
 
 const Registration = () => {
     const {userRegistration, updateProfileInformation} = useContext(AuthContext);
+    const navigate = useNavigate();
 
     const [name, setName] = useState('');
     const [nameError , setNameError] = useState('');
@@ -133,7 +134,7 @@ const Registration = () => {
             .then((userCredential) => {
                 const user = userCredential.user;
                 updateProfileInformation(user , name, photoUrl);
-                console.log(user);
+                navigate('/');
             })
             .catch((error) => {
                 const errorCode = error.code;

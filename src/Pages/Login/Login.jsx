@@ -1,9 +1,37 @@
-import React from 'react';
+import React, {useContext, useState} from 'react';
 import {FaGoogle} from "react-icons/fa";
-import {Link} from "react-router-dom";
+import {Link, useNavigate, useNavigation} from "react-router-dom";
 import GoogleAuth from "../Shared/SocialAuth/Google/GoogleAuth.jsx";
+import {AuthContext} from "../../Providers/AuthProvider.jsx";
 
 const Login = () => {
+    const { userLogin } = useContext(AuthContext);
+    const navigate = useNavigate();
+
+    const [message, setMassage] = useState('');
+
+
+    const handelSubmit = (e) => {
+        e.preventDefault();
+        const form = e.target;
+        const email = form.email.value;
+        const password = form.password.value;
+        setMassage('');
+        if(email === '' || password === ''){
+            setMassage('Input required');
+            return;
+        }
+        userLogin(email, password)
+            .then(() => {
+                setMassage('Login success');
+                navigate('/');
+            })
+            .catch(e => {
+                setMassage("Email/Password doesn't match");
+            })
+        form.reset();
+    }
+
     return (
         <div>
             <div className="flex items-center justify-center bg-cover bg-center min-h-screen">
@@ -21,7 +49,8 @@ const Login = () => {
                 </div>
                 <div className="w-1/2 p-8 text-gray-800 dark:text-gray-200">
                     <h2 className="text-2xl mb-4">User Login</h2>
-                    <form>
+                    <small>{ message }</small>
+                    <form onSubmit={handelSubmit}>
                         <div className="mb-4">
                             <label className="block text-gray-700 text-sm font-bold mb-2 text-gray-800 dark:text-gray-200" htmlFor="email">
                                 Email
@@ -31,6 +60,7 @@ const Login = () => {
                                 id="email"
                                 type="email"
                                 placeholder="Enter your email"
+                                name="email"
                             />
                         </div>
                         <div className="mb-4">
@@ -42,6 +72,7 @@ const Login = () => {
                                 id="password"
                                 type="password"
                                 placeholder="Enter your password"
+                                name="password"
                             />
                         </div>
                         <button
