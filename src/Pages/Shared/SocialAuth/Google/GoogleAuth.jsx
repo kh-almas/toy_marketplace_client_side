@@ -1,5 +1,4 @@
 import React, {useContext} from 'react';
-import {FaGoogle} from "react-icons/fa";
 import {AuthContext} from "../../../../Providers/AuthProvider.jsx";
 import { GoogleAuthProvider } from "firebase/auth";
 import { FaGoogle } from "react-icons/fa";

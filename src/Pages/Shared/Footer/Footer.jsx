@@ -2,7 +2,6 @@ import React from 'react';
 import logo from "../../../assets/logo.jpg";
 import { FaFacebook } from "react-icons/fa";
 import { FaGoogle } from "react-icons/fa";
-import { FaGooglePlusG } from "react-icons/fa";
 import { FaTwitter } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa";
 

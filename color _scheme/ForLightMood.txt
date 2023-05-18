@@ -31,8 +31,7 @@ Text: text-white
 bg-teal-900 text-white hover:bg-teal-700
 
 Button (Show):
-Background: bg-blue-500
-Text: text-white
+bg-blue-700 text-white hover:bg-blue-800
 
 Button (Update):
 Background: bg-yellow-500

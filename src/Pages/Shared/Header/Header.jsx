@@ -18,12 +18,12 @@ const Header = () => {
 
     return (
         <>
-            <div className="navbar bg-base-100">
+            <div className="navbar dark:bg-gray-800 bg-teal-300 rounded-full">
                 <div className="navbar-start">
                 <span className="lg:hidden">
                     <PopoverLink />
                 </span>
-                    <Link to={'/'} className="btn btn-ghost normal-case text-xl">
+                    <Link to={'/'} className="text-xl flex items-center">
                         <img className="w-10 h-10 rounded-full mr-2" src={logo} alt="img"/> Cognitive Wonders
                     </Link>
                 </div>
