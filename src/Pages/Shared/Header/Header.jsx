@@ -1,5 +1,7 @@
 import React from 'react';
 import PopoverLink from "./PopoverLink.jsx";
+import logo from '../../../assets/logo.jpg';
+import {Link} from "react-router-dom";
 
 const Header = () => {
     return (
@@ -8,19 +10,19 @@ const Header = () => {
                 <span className="lg:hidden">
                     <PopoverLink />
                 </span>
-                <a className="btn btn-ghost normal-case text-xl hidden lg:flex">
-                    daisyUI
-                </a>
+                <Link to={'/'} className="btn btn-ghost normal-case text-xl">
+                    <img className="w-10 h-10 rounded-full mr-2" src={logo} alt="img"/> Cognitive Wonders
+                </Link>
             </div>
             <div className="navbar-center hidden lg:flex">
-                <a className="btn">login</a>
+                <Link to={'/login'} className="btn">login</Link>
             </div>
             <div className="lg:hidden navbar-end">
-                <a className="btn">login</a>
+                <Link to={'/login'} className="btn">login</Link>
             </div>
             <div className="navbar-end hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
-                    <li><a>Home</a></li>
+                    <li><Link to={'/'}>Home</Link></li>
                     <li><a>All Toys</a></li>
                     <li><a>My Toys</a></li>
                     <li><a>Blogs</a></li>

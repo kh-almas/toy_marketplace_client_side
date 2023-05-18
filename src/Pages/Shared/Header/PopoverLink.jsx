@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react';
 import { Popover, Transition } from '@headlessui/react';
+import {Link} from "react-router-dom";
 
 const PopoverLink = () => {
     return (
@@ -22,7 +23,7 @@ const PopoverLink = () => {
                             <Popover.Panel className="absolute left-[80px] z-10 mt-3 -translate-x-1/2 transform px-4 sm:px-0">
                                 <div className="overflow-hidden rounded-lg shadow-lg ring-1 ring-black ring-opacity-5">
                                     <ul className="relative gap-8 bg-base-100 p-2">
-                                            <li className="my-4"><a href='/' className="py-1 border-solid border-b-2 border-sky-500">Home</a></li>
+                                            <li className="my-4"><Link to={'/'} className="py-1 border-solid border-b-2 border-sky-500">Home</Link></li>
                                             <li className="my-4"><a href='/' className="py-1 border-solid border-b-2 border-sky-500">All Toys</a></li>
                                             <li className="my-4"><a href='/' className="py-1 border-solid border-b-2 border-sky-500">My Toys</a></li>
                                             <li className="my-4"><a href='/' className="py-1 border-solid border-b-2 border-sky-500">Blogs</a></li>

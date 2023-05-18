@@ -26,8 +26,9 @@ Background: bg-white
 Border: border-gray-200
 
 Button (Create):
-Background: bg-teal-500
+Background: bg-teal-900
 Text: text-white
+bg-teal-900 text-white hover:bg-teal-700
 
 Button (Show):
 Background: bg-blue-500
