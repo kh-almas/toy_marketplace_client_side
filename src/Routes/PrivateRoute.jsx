@@ -3,7 +3,11 @@ import {AuthContext} from "../Providers/AuthProvider.jsx";
 import { Navigate } from "react-router-dom";
 
 const PrivateRoute = ( { children }) => {
-    const { user } = useContext(AuthContext);
+    const { user, isLoading } = useContext(AuthContext);
+
+    if(isLoading) {
+        return <button className="btn btn-square loading"></button>
+    }
 
     if(user){
         return children;

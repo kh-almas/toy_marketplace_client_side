@@ -14,6 +14,7 @@ export const AuthContext = createContext(null);
 
 const AuthProvider = ({ children }) => {
     const [user, setUser] = useState({});
+    const [isLoading, setIsLoading] = useState(true);
     const [isProfileUpdated, setIsProfileUpdated] = useState(false);
 
     const userRegistration = (email, password) => {
@@ -49,12 +50,13 @@ const AuthProvider = ({ children }) => {
             console.log(user);
         })
 
+        setIsLoading(false);
         return () => {
             return unsubscribe();
         }
-    }, []);
+    }, [isProfileUpdated]);
 
-    const userManagement = {user, userLogin, userRegistration, updateProfileInformation, logout, authWithGoogle};
+    const userManagement = {user, userLogin, userRegistration, updateProfileInformation, logout, authWithGoogle, isLoading, setIsLoading};
 
     return (
         <AuthContext.Provider value={userManagement}>

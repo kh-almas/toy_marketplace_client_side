@@ -79,7 +79,7 @@ const CreateToy = () => {
         <div>
             <div className="flex items-center justify-center bg-cover bg-center min-h-screen">
                 <div className="w-full p-8 text-gray-800 dark:text-gray-200">
-                    <h2 className="text-2xl mb-4">User Registration</h2>
+                    <h2 className="text-2xl mb-4">Create toys</h2>
                     <form onSubmit={handelSubmit}>
                         <div className="text-center">
                             <small className="text-white">{ message }</small>
