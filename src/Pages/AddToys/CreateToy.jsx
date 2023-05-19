@@ -1,12 +1,15 @@
-import React, {useState} from 'react';
+import React, {useContext, useState} from 'react';
 import GoogleAuth from "../Shared/SocialAuth/Google/GoogleAuth.jsx";
 import {Link} from "react-router-dom";
+import {AuthContext} from "../../Providers/AuthProvider.jsx";
 
 const CreateToy = () => {
-    const [error, setError] = useState('');
+    const [message, setMessage] = useState('');
+    const { user } = useContext(AuthContext)
+
     const handelSubmit = e => {
         e.preventDefault();
-        setError('');
+        setMessage('');
         const form = e.target;
         const category = form.category.value;
         const name = form.name.value;
@@ -18,40 +21,58 @@ const CreateToy = () => {
         const description = form.description.value;
 
         if(category === 'disabled'){
-            setError('Select a category');
+            setMessage('Select a category');
         }
 
         if( name === ''){
-            setError('Give a toy name');
+            setMessage('Give a toy name');
         }
 
         if( price === ''){
-            setError('Set a price for toy');
+            setMessage('Set a price for toy');
         }
 
         if( rating === ''){
-            setError('Give toy ratings');
+            setMessage('Give toy ratings');
         }
 
         if( brand === ''){
-            setError('add your toys brand');
+            setMessage('add your toys brand');
         }
 
         if( age === ''){
-            setError('Add age');
+            setMessage('Add age');
         }
 
         if( image === ''){
-            setError('Add a toy image');
+            setMessage('Add a toy image');
         }
 
         if( description === ''){
-            setError('Add a toy description');
+            setMessage('Add a toy description');
         }
 
-        const info = {category, name, price, rating, brand, age, image, description}
+        const userEmail = user.email;
 
-        console.log(info);
+        const info = {category, name, price, rating, brand, age, image, description, userEmail}
+
+        fetch('http://localhost:3000/create-toy',{
+            method: 'POST',
+            headers:{
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(info)
+        })
+            .then(res => res.json())
+            .then(data => {
+                if(data.insertedId){
+                    setMessage(`Your toy id: ${data.insertedId}`)
+                }
+                else{
+                    setMessage('something is wrong');
+                }
+            })
+        form.reset();
 
     }
     return (
@@ -61,7 +82,7 @@ const CreateToy = () => {
                     <h2 className="text-2xl mb-4">User Registration</h2>
                     <form onSubmit={handelSubmit}>
                         <div className="text-center">
-                            <small className="text-white">{ error }</small>
+                            <small className="text-white">{ message }</small>
                         </div>
                         <div className="mb-4">
                             <label className="block text-gray-700 text-sm font-bold mb-2 text-gray-800 dark:text-gray-200" htmlFor="category">

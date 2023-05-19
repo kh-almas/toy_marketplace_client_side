@@ -4,6 +4,7 @@ import Home from "../Pages/Home/Home.jsx";
 import Registration from "../Pages/Registration/Registration.jsx";
 import Login from "../Pages/Login/Login.jsx";
 import CreateToy from "../Pages/AddToys/CreateToy.jsx";
+import PrivateRoute from "./PrivateRoute.jsx";
 
 const router = createBrowserRouter([
     {
@@ -25,7 +26,7 @@ const router = createBrowserRouter([
             },
             {
                 path: '/create-toy',
-                element: <CreateToy />
+                element: <PrivateRoute><CreateToy /></PrivateRoute>
             },
         ]
     },
