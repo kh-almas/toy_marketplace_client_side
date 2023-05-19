@@ -28,7 +28,7 @@ const PopoverLink = () => {
                                             <li className="my-4"><a href='/' className="py-1 border-solid border-b-2 border-sky-500">My Toys</a></li>
                                             <li className="my-4"><a href='/' className="py-1 border-solid border-b-2 border-sky-500">Blogs</a></li>
                                             <li className="my-4"><a href='/' className="py-1 border-solid border-b-2 border-sky-500">Add Category</a></li>
-                                            <li className="my-4"><a href='/' className="py-1 border-solid border-b-2 border-sky-500">Add Toy</a></li>
+                                            <li className="my-4"><Link to={'/create-toy'} className="py-1 border-solid border-b-2 border-sky-500">Add Toy</Link></li>
                                     </ul>
 
                                 </div>

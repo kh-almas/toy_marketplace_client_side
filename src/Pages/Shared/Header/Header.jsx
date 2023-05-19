@@ -50,7 +50,7 @@ const Header = () => {
                             </a>
                             <ul className="p-2">
                                 <li><a>Category</a></li>
-                                <li><a>Toy</a></li>
+                                <li><Link to={'/create-toy'}>Toy</Link></li>
                             </ul>
                         </li>
                     </ul>
