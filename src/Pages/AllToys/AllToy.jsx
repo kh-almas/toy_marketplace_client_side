@@ -4,14 +4,14 @@ import TableRow from "./TableRow.jsx";
 import {Link} from "react-router-dom";
 import {Popover, Transition} from "@headlessui/react";
 
-const Mytoy = () => {
+const AllToy = () => {
     const {user, setIsLoading} = useContext(AuthContext);
     const [toys, setToys] = useState([]);
     const [sortByPrice, setSortBYPrice] = useState(0);
 
     useEffect(()=> {
         setIsLoading(true);
-        fetch(`http://localhost:3000/my-toys/${user.email}/${sortByPrice}`)
+        fetch(`http://localhost:3000/all-toys/${sortByPrice}`)
             .then(res => res.json())
             .then(data => setToys(data))
         setIsLoading(false);
@@ -90,4 +90,4 @@ const Mytoy = () => {
     );
 };
 
-export default Mytoy;
+export default AllToy;

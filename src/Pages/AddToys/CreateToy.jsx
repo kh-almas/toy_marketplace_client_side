@@ -15,6 +15,7 @@ const CreateToy = () => {
         const name = form.name.value;
         const price = form.price.value;
         const rating = form.rating.value;
+        const quantity = form.quantity.value;
         const brand = form.brand.value;
         const age = form.age.value;
         const image = form.image.value;
@@ -36,6 +37,10 @@ const CreateToy = () => {
             setMessage('Give toy ratings');
         }
 
+        if( quantity === ''){
+            setMessage('Give toy quantity');
+        }
+
         if( brand === ''){
             setMessage('add your toys brand');
         }
@@ -52,9 +57,10 @@ const CreateToy = () => {
             setMessage('Add a toy description');
         }
 
-        const userEmail = user.email;
+        const sellerEmail = user.email;
+        const sellerName = user.email;
 
-        const info = {category, name, price, rating, brand, age, image, description, userEmail}
+        const info = {category, name, price, rating, quantity, brand, age, image, description, sellerEmail, sellerName}
 
         fetch('http://localhost:3000/create-toy',{
             method: 'POST',
@@ -109,7 +115,7 @@ const CreateToy = () => {
                                 placeholder="Enter your name"
                             />
                         </div>
-                        <div className="grid md:grid-cols-2 gap-4">
+                        <div className="grid md:grid-cols-3 gap-4">
                             <div className="mb-4">
                                 <label className="block text-gray-700 text-sm font-bold mb-2 text-gray-800 dark:text-gray-200" htmlFor="price">
                                     Price
@@ -132,6 +138,18 @@ const CreateToy = () => {
                                     name="rating"
                                     type="number"
                                     placeholder="Set ratings"
+                                />
+                            </div>
+                            <div className="mb-4">
+                                <label className="block text-gray-700 text-sm font-bold mb-2 text-gray-800 dark:text-gray-200" htmlFor="quantity">
+                                    Quantity
+                                </label>
+                                <input
+                                    className="shadow appearance-none border rounded w-full py-2 px-3 border-gray-300 dark:border-gray-600 text-gray-800 dark:text-gray-200 bg-white dark:bg-gray-700 focus:border-teal-500 focus:shadow-outline"
+                                    id="quantity"
+                                    name="quantity"
+                                    type="number"
+                                    placeholder="Set quantity"
                                 />
                             </div>
                         </div>
