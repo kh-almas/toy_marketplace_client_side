@@ -1,12 +1,14 @@
 import React, {useContext, useState} from 'react';
 import {FaGoogle} from "react-icons/fa";
-import {Link, useNavigate, useNavigation} from "react-router-dom";
+import {Link, useLocation, useNavigate, useNavigation} from "react-router-dom";
 import GoogleAuth from "../Shared/SocialAuth/Google/GoogleAuth.jsx";
 import {AuthContext} from "../../Providers/AuthProvider.jsx";
 
 const Login = () => {
     const { userLogin } = useContext(AuthContext);
     const navigate = useNavigate();
+    const location = useLocation();
+    const userLoginMessage = location.state && location.state.message;
 
     const [message, setMassage] = useState('');
 
@@ -50,6 +52,7 @@ const Login = () => {
                 <div className="w-1/2 p-8 text-gray-800 dark:text-gray-200">
                     <h2 className="text-2xl mb-4">User Login</h2>
                     <small>{ message }</small>
+                    <small>{ userLoginMessage }</small>
                     <form onSubmit={handelSubmit}>
                         <div className="mb-4">
                             <label className="block text-gray-700 text-sm font-bold mb-2 text-gray-800 dark:text-gray-200" htmlFor="email">

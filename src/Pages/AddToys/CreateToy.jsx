@@ -163,7 +163,7 @@ const CreateToy = () => {
                                     id="brand"
                                     name="brand"
                                     type="text"
-                                    placeholder="set a price"
+                                    placeholder="set a brand"
                                 />
                             </div>
                             <div className="mb-4">
@@ -175,7 +175,7 @@ const CreateToy = () => {
                                     id="age"
                                     name="age"
                                     type="text"
-                                    placeholder="Enter your password"
+                                    placeholder="Enter your toy buyer age range"
                                 />
                             </div>
                         </div>

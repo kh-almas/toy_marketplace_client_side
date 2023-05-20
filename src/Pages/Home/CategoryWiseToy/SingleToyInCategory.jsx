@@ -1,18 +1,30 @@
-import React, {Fragment, useState} from 'react';
+import React, {Fragment, useContext, useState} from 'react';
 import {Dialog, Transition} from "@headlessui/react";
+import {AuthContext} from "../../../Providers/AuthProvider.jsx";
+import {useNavigate} from "react-router-dom";
 
 const SingleToyInCategory = ({item}) => {
+    const { user } = useContext(AuthContext);
     const [isOpen, setIsOpen] = useState(false)
+    const navigate = useNavigate();
 
     function closeModal() {
         setIsOpen(false)
     }
 
     function openModal() {
-        setIsOpen(true)
+        if(user){
+            setIsOpen(true);
+        }else {
+            console.log(user);
+            setIsOpen(false);
+            navigate('/login', { state: { message: 'Please login first to show toy details' } })
+            // return <Navigate to={'/login'} replace={true}></Navigate>;
+        }
+
     }
     return (
-        <div>
+        <>
             <div className="card lg:card-side bg-base-100 shadow-xl">
                 <figure><img src={item.image} alt="Album" className="w-48 h-full"/></figure>
                 <div className="card-body -m-4">
@@ -70,7 +82,7 @@ const SingleToyInCategory = ({item}) => {
                     </div>
                 </Dialog>
             </Transition>
-        </div>
+        </>
     );
 };
 

@@ -1,7 +1,16 @@
-import React from 'react';
+import React, {Fragment, useContext, useState} from 'react';
+import {Dialog, Transition} from "@headlessui/react";
+import {AuthContext} from "../../Providers/AuthProvider.jsx";
+import {useNavigate} from "react-router-dom";
 
-const TableRow = ({toys}) => {
-    const {age, brand, category, description, image, name, price, rating} = toys;
+const TableRow = ({toys, deleteToy, openModal}) => {
+    const {_id, age, brand, quantity, category, description, image, name, price, rating} = toys;
+
+    const { user } = useContext(AuthContext);
+
+
+
+
     return (
         <>
             <tr>
@@ -30,8 +39,12 @@ const TableRow = ({toys}) => {
                 <td>{age}</td>
                 <th>
                     <button className="btn btn-ghost btn-xs">details</button>
+                    <button onClick={()=> openModal(_id)} className="btn btn-ghost btn-xs">update</button>
+                    <button onClick={() => deleteToy(_id)} className="btn btn-danger btn-xs">delete</button>
                 </th>
+
             </tr>
+
         </>
     );
 };
