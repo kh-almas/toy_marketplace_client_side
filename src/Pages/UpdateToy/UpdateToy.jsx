@@ -1,9 +1,11 @@
 import React, {useContext, useEffect, useState} from 'react';
 import {AuthContext} from "../../Providers/AuthProvider.jsx";
 import {useParams} from "react-router-dom";
+import {Helmet} from "react-helmet";
 
 const UpdateToy = () => {
     const {id} = useParams();
+    const {setIsLoadData} = useContext(AuthContext);
 
     const [message, setMessage] = useState('');
     const [toys, setToys] = useState('');
@@ -11,9 +13,11 @@ const UpdateToy = () => {
 
 
     useEffect(()=> {
-        fetch(`http://localhost:3000/single-toys/${id}`)
+        setIsLoadData(true);
+        fetch(`https://cognitivewonders-production.up.railway.app/single-toys/${id}`)
             .then(res => res.json())
             .then(data => setToys(data))
+        setIsLoadData(false);
     },[isUpdate])
 
     const handelSubmit = e => {
@@ -63,7 +67,7 @@ const UpdateToy = () => {
 
         const info = {name, price, rating, quantity, brand, age, image, description}
 
-        fetch(`http://localhost:3000/update-toys/${toys._id}`,{
+        fetch(`https://cognitivewonders-production.up.railway.app/update-toys/${toys._id}`,{
             method: 'PUT',
             headers:{
                 'content-type': 'application/json'
@@ -84,6 +88,9 @@ const UpdateToy = () => {
     }
     return (
         <div>
+            <Helmet>
+                <title>cognitivewonders | update-toy</title>
+            </Helmet>
             <div className="flex items-center justify-center bg-cover bg-center min-h-screen">
                 <div className="w-full p-8 text-gray-800 dark:text-gray-200">
                     <h2 className="text-2xl mb-4">Create toys</h2>

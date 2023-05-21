@@ -3,19 +3,20 @@ import {AuthContext} from "../../Providers/AuthProvider.jsx";
 import TableRow from "./TableRow.jsx";
 import {Link} from "react-router-dom";
 import {Popover, Transition} from "@headlessui/react";
+import {Helmet} from "react-helmet";
 
 const AllToy = () => {
-    const {user, setIsLoading} = useContext(AuthContext);
+    const {user, setIsLoadData} = useContext(AuthContext);
     const [toys, setToys] = useState([]);
     const [sortByPrice, setSortBYPrice] = useState(0);
     const [isSearch, setIsSearch] = useState(false);
 
     useEffect(()=> {
-        setIsLoading(true);
-        fetch(`http://localhost:3000/all-toys/${sortByPrice}`)
+        setIsLoadData(true)
+        fetch(`https://cognitivewonders-production.up.railway.app/all-toys/${sortByPrice}`)
             .then(res => res.json())
             .then(data => setToys(data))
-        setIsLoading(false);
+        setIsLoadData(false)
     },[user, sortByPrice, isSearch])
     console.log(toys);
 
@@ -24,7 +25,7 @@ const AllToy = () => {
         const form = e.target;
         const text = form.search.value;
         if(text){
-            fetch(`http://localhost:3000/search/${text}`)
+            fetch(`https://cognitivewonders-production.up.railway.app/search/${text}`)
                 .then((res) => res.json())
                 .then((data) => {
                     console.log(data);
@@ -52,6 +53,9 @@ const AllToy = () => {
     </>
     return (
         <div>
+            <Helmet>
+                <title>cognitivewonders | all-toys</title>
+            </Helmet>
             <div className="flex justify-between">
                 <div className="form-control">
                     <form onSubmit={handleSearch}>
@@ -82,8 +86,8 @@ const AllToy = () => {
                                     <Popover.Panel className="absolute  mt-3 -translate-x-1/2 transform px-4 sm:px-0 z-50 w-[122px]">
                                         <div className="overflow-hidden rounded-lg shadow-lg ring-1 ring-black ring-opacity-5">
                                             <ul className="relative gap-8 bg-base-100 p-2">
-                                                <li className="my-4"><button onClick={() => setSortBYPrice(-1)} className="btn py-1 border-sky-500">Low price</button></li>
-                                                <li className="my-4"><button onClick={() => setSortBYPrice(1)} className="btn py-1 border-sky-500">High price</button></li>
+                                                <li className="my-4"><button onClick={() => setSortBYPrice(1)} className="btn py-1 border-sky-500">Low price</button></li>
+                                                <li className="my-4"><button onClick={() => setSortBYPrice(-1)} className="btn py-1 border-sky-500">High price</button></li>
                                             </ul>
 
                                         </div>

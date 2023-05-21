@@ -2,6 +2,7 @@ import React, {useContext, useState} from 'react';
 import {Link, useNavigate} from "react-router-dom";
 import GoogleAuth from "../Shared/SocialAuth/Google/GoogleAuth.jsx";
 import {AuthContext} from "../../Providers/AuthProvider.jsx";
+import {Helmet} from "react-helmet";
 
 const Registration = () => {
     const {userRegistration, updateProfileInformation} = useContext(AuthContext);
@@ -150,6 +151,9 @@ const Registration = () => {
     }
     return (
         <div>
+            <Helmet>
+                <title>cognitivewonders | create-account</title>
+            </Helmet>
             <div className="flex items-center justify-center bg-cover bg-center min-h-screen">
                 <div className="w-1/2 p-8">
                     <p className="text-3xl mb-5">Welcome to our registration page!</p>

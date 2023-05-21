@@ -18,8 +18,7 @@ const SingleToyInCategory = ({item}) => {
         }else {
             console.log(user);
             setIsOpen(false);
-            navigate('/login', { state: { message: 'You have to log in first to view details' } })
-            // return <Navigate to={'/login'} replace={true}></Navigate>;
+            navigate('/login', { state: { message: 'You have to log in first to view details' } });
         }
 
     }

@@ -1,28 +1,28 @@
 import React, {Fragment, useContext, useEffect, useState} from 'react';
 import {AuthContext} from "../../Providers/AuthProvider.jsx";
 import TableRow from "./TableRow.jsx";
-import {Link} from "react-router-dom";
-import {Dialog, Popover, Transition} from "@headlessui/react";
+import {Popover, Transition} from "@headlessui/react";
+import {Helmet} from "react-helmet";
 
 const Mytoy = () => {
-    const {user, setIsLoading} = useContext(AuthContext);
+    const {user, setIsLoadData} = useContext(AuthContext);
     const [toys, setToys] = useState([]);
     const [sortByPrice, setSortBYPrice] = useState(0);
     const [message, setMessage] = useState('');
     const [isDelete, setISDelete] = useState(false);
 
     useEffect(()=> {
-        setIsLoading(true);
-        fetch(`http://localhost:3000/my-toys/${user.email}/${sortByPrice}`)
+        setIsLoadData(true);
+        fetch(`https://cognitivewonders-production.up.railway.app/my-toys/${user.email}/${sortByPrice}`)
             .then(res => res.json())
             .then(data => setToys(data))
-        setIsLoading(false);
+        setIsLoadData(false);
     },[user, sortByPrice, isDelete])
 
     const deleteToy = id =>{
         const conformation = confirm('Wanna delete this toy item?');
         if(conformation === true){
-            fetch(`http://localhost:3000/toy/${id}`,{
+            fetch(`https://cognitivewonders-production.up.railway.app/toy/${id}`,{
                 method:'DELETE'
             })
                 .then(res => res.json())
@@ -53,7 +53,9 @@ const Mytoy = () => {
     </>
     return (
         <div>
-
+            <Helmet>
+                <title>cognitivewonders | my-toys</title>
+            </Helmet>
             <div className="flex justify-end mb-4">
                 <Popover className="relative">
                     {({ open }) => (

@@ -2,6 +2,7 @@ import React, {useContext, useState} from 'react';
 import GoogleAuth from "../Shared/SocialAuth/Google/GoogleAuth.jsx";
 import {Link} from "react-router-dom";
 import {AuthContext} from "../../Providers/AuthProvider.jsx";
+import {Helmet} from "react-helmet";
 
 const CreateToy = () => {
     const [message, setMessage] = useState('');
@@ -62,7 +63,7 @@ const CreateToy = () => {
 
         const info = {category, name, price, rating, quantity, brand, age, image, description, sellerEmail, sellerName}
 
-        fetch('http://localhost:3000/create-toy',{
+        fetch('https://cognitivewonders-production.up.railway.app/create-toy',{
             method: 'POST',
             headers:{
                 'content-type': 'application/json'
@@ -83,6 +84,9 @@ const CreateToy = () => {
     }
     return (
         <div>
+            <Helmet>
+                <title>cognitivewonders | create-toys</title>
+            </Helmet>
             <div className="flex items-center justify-center bg-cover bg-center min-h-screen">
                 <div className="w-full p-8 text-gray-800 dark:text-gray-200">
                     <h2 className="text-2xl mb-4">Create toys</h2>

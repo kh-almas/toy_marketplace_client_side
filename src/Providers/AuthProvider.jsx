@@ -13,8 +13,8 @@ import auth from "../Firebase/firebase.config.js";
 export const AuthContext = createContext(null);
 
 const AuthProvider = ({ children }) => {
+    const [isLoadData, setIsLoadData] = useState(true);
     const [user, setUser] = useState({});
-    const [isLoading, setIsLoading] = useState(true);
     const [isProfileUpdated, setIsProfileUpdated] = useState(false);
 
     const userRegistration = (email, password) => {
@@ -49,14 +49,14 @@ const AuthProvider = ({ children }) => {
             setUser(user);
             console.log(user);
         })
+        setIsLoadData(false)
 
-        setIsLoading(false);
         return () => {
             return unsubscribe();
         }
     }, [isProfileUpdated]);
 
-    const userManagement = {user, userLogin, userRegistration, updateProfileInformation, logout, authWithGoogle, isLoading, setIsLoading};
+    const userManagement = {user, userLogin, userRegistration, updateProfileInformation, logout, authWithGoogle,isLoadData, setIsLoadData};
 
     return (
         <AuthContext.Provider value={userManagement}>

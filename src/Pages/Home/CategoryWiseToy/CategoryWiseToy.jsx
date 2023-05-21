@@ -15,13 +15,14 @@ const CategoryWiseToy = () => {
     ];
 
     useEffect(() => {
-        fetch(`http://localhost:3000/category-toy/${findCategoryData}`)
+        fetch(`https://cognitivewonders-production.up.railway.app/category-toy/${findCategoryData}`)
             .then(res => res.json())
             .then(data => setToy(data))
     }, [findCategoryData])
 
     return (
-        <div>
+        <div className="mt-12">
+            <h1 className="mb-8 text-2xl font-bold text-center mb-2 text-gray-800 dark:text-white">Show product by category</h1>
             <Tabs className="md:flex w-full">
                 <div className="mr-12 text-center md:text-left">
                     <TabList>

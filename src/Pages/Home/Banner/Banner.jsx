@@ -1,9 +1,10 @@
 import React from 'react';
+import {Link} from "react-router-dom";
 
 const Banner = () => {
     return (
-        <div className="pb-8 bg-gray-100 dark:bg-gray-900">
-            <div className="container mx-auto flex flex-col items-center">
+        <div className="pb-8 bg-gray-100 dark:bg-gray-900 mt-22">
+            <div className="mx-auto flex flex-col items-center">
                 <h1 className="text-4xl text-gray-800 dark:text-white font-bold mb-4">
                     Discover the World of Learning Fun!
                 </h1>
@@ -59,9 +60,9 @@ const Banner = () => {
                         </p>
                     </div>
                 </div>
-                <button className="bg-blue-700 text-white hover:bg-blue-800 font-bold rounded-full py-2 px-8 mt-8">
+                <Link to={'/all-toys'} className="bg-blue-700 text-white hover:bg-blue-800 font-bold rounded-full py-2 px-8 mt-8">
                     Shop Now
-                </button>
+                </Link>
             </div>
         </div>
     );

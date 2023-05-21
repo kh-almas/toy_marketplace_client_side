@@ -1,8 +1,12 @@
 import React from 'react';
+import {Helmet} from "react-helmet";
 
 const Blog = () => {
     return (
         <div>
+            <Helmet>
+                <title>cognitivewonders | blogs</title>
+            </Helmet>
             <div className="container mx-auto">
                 <div className="py-8">
                     <h1 className="text-4xl font-bold mb-4">Welcome to My Blog</h1>

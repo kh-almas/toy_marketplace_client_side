@@ -2,6 +2,7 @@ import React, {useContext, useState} from 'react';
 import {Link, useLocation, useNavigate} from "react-router-dom";
 import GoogleAuth from "../Shared/SocialAuth/Google/GoogleAuth.jsx";
 import {AuthContext} from "../../Providers/AuthProvider.jsx";
+import {Helmet} from "react-helmet";
 
 const Login = () => {
     const { userLogin } = useContext(AuthContext);
@@ -36,6 +37,9 @@ const Login = () => {
 
     return (
         <div>
+            <Helmet>
+                <title>cognitivewonders | login-your-account</title>
+            </Helmet>
             <div className="flex items-center justify-center bg-cover bg-center min-h-screen">
                 <div className="w-1/2 p-8">
                     <p className="text-3xl mb-5">Welcome to our login page!</p>
