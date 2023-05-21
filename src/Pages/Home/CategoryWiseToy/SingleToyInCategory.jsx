@@ -31,6 +31,7 @@ const SingleToyInCategory = ({item}) => {
                     <p>Category: {item.category}</p>
                     <p>Brand: {item.brand}</p>
                     <p>Price: {item.price}</p>
+                    <p>Rating: {item.rating}</p>
                     <div className="card-actions justify-end">
                         <button onClick={openModal} className="btn-sm rounded-lg btn-primary w-full">See more</button>
                     </div>
