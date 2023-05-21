@@ -9,7 +9,7 @@ const Galley = () => {
                 <div className="w-full md:w-1/2 lg:w-1/12 p-2">
                     <div data-aos="flip-left" data-aos-duration="1000">
                         <img
-                            src="https://wpklik.com/wp-content/uploads/2019/03/A-404-Page-Best-Practices-and-Design-Inspiration.jpg"
+                            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6NnBl1KJXjMjKtCdeXZyPvvjMvfKxstY0Bg&usqp=CAU"
                             alt="Image 1"
                             className="w-full h-auto rounded-lg"
                         />
@@ -21,7 +21,7 @@ const Galley = () => {
                 <div className="w-full md:w-1/2 lg:w-3/12 p-2">
                     <div data-aos="flip-left" data-aos-duration="1000">
                         <img
-                            src="https://wpklik.com/wp-content/uploads/2019/03/A-404-Page-Best-Practices-and-Design-Inspiration.jpg"
+                            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6NnBl1KJXjMjKtCdeXZyPvvjMvfKxstY0Bg&usqp=CAU"
                             alt="Image 2"
                             className="w-full h-auto rounded-lg"
                         />
@@ -33,7 +33,7 @@ const Galley = () => {
                 <div className="w-full md:w-1/2 lg:w-4/12 p-2">
                     <div data-aos="flip-left" data-aos-duration="1000">
                         <img
-                            src="https://wpklik.com/wp-content/uploads/2019/03/A-404-Page-Best-Practices-and-Design-Inspiration.jpg"
+                            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6NnBl1KJXjMjKtCdeXZyPvvjMvfKxstY0Bg&usqp=CAU"
                             alt="Image 3"
                             className="w-full h-auto rounded-lg"
                         />
@@ -45,7 +45,7 @@ const Galley = () => {
                 <div className="w-full md:w-1/2 lg:w-3/12 p-2">
                     <div data-aos="flip-left" data-aos-duration="1000">
                         <img
-                            src="https://wpklik.com/wp-content/uploads/2019/03/A-404-Page-Best-Practices-and-Design-Inspiration.jpg"
+                            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6NnBl1KJXjMjKtCdeXZyPvvjMvfKxstY0Bg&usqp=CAU"
                             alt="Image 4"
                             className="w-full h-auto rounded-lg"
                         />
@@ -57,7 +57,7 @@ const Galley = () => {
                 <div className="w-full md:w-1/2 lg:w-1/12 p-2">
                     <div data-aos="flip-left" data-aos-duration="1000">
                         <img
-                            src="https://wpklik.com/wp-content/uploads/2019/03/A-404-Page-Best-Practices-and-Design-Inspiration.jpg"
+                            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6NnBl1KJXjMjKtCdeXZyPvvjMvfKxstY0Bg&usqp=CAU"
                             alt="Image 5"
                             className="w-full h-auto rounded-lg"
                         />

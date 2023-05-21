@@ -36,7 +36,10 @@ const Header = () => {
 
                 </div>
                 <div className="lg:hidden navbar-end">
-                    <Link to={'/login'} className="btn btn-sm">login</Link>
+                    {
+                        user ? <><div className="tooltip tooltip-bottom" data-tip={user.displayName}><img className="w-6 h-6 rounded-full mr-2" src={user.photoURL} alt="img"/></div><button onClick={logOutBtn} className="btn btn-sm">log Out</button></>
+                            : <Link to={'/login'} className="btn btn-sm">login</Link>
+                    }
                 </div>
                 <div className="navbar-end hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">

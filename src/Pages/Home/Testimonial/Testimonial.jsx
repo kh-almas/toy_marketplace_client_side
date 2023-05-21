@@ -10,7 +10,7 @@ const Testimonial = () => {
                     <div className="w-full md:w-1/2 lg:w-1/3 p-4">
                         <div className="bg-gray-300 dark:bg-gray-700 rounded-lg p-6 shadow">
                             <div className="mb-4">
-                                <img className="w-12 h-12 rounded-full mx-auto" src="https://wpklik.com/wp-content/uploads/2019/03/A-404-Page-Best-Practices-and-Design-Inspiration.jpg" alt="Testimonial 1" />
+                                <img className="w-12 h-12 rounded-full mx-auto" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQkdPUrvq_PqcJ6xThm45NFBRnGYPElU28gAw&usqp=CAU" alt="Testimonial 1" />
                             </div>
                             <h3 className="text-xl font-bold mb-2 text-gray-800 dark:text-gray-200">John Doe</h3>
                             <p className="text-teal-900 dark:text-teal-500">"Lorem ipsum dolor sit amet, consectetur adipiscing elit. In eget nisi risus. Sed iaculis tincidunt velit."</p>
@@ -19,7 +19,7 @@ const Testimonial = () => {
                     <div className="w-full md:w-1/2 lg:w-1/3 p-4">
                         <div className="bg-gray-300 dark:bg-gray-700 rounded-lg p-6 shadow">
                             <div className="mb-4">
-                                <img className="w-12 h-12 rounded-full mx-auto" src="https://wpklik.com/wp-content/uploads/2019/03/A-404-Page-Best-Practices-and-Design-Inspiration.jpg" alt="Testimonial 2" />
+                                <img className="w-12 h-12 rounded-full mx-auto" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQkdPUrvq_PqcJ6xThm45NFBRnGYPElU28gAw&usqp=CAU" alt="Testimonial 2" />
                             </div>
                             <h3 className="text-xl font-bold mb-2 text-gray-800 dark:text-gray-200">Jane Smith</h3>
                             <p className="text-teal-900 dark:text-teal-500">"Suspendisse euismod arcu a metus euismod, a iaculis nunc dignissim. Donec ac lorem quis libero porttitor."</p>
@@ -28,7 +28,7 @@ const Testimonial = () => {
                     <div className="w-full md:w-1/2 lg:w-1/3 p-4">
                         <div className="bg-gray-300 dark:bg-gray-700 rounded-lg p-6 shadow">
                             <div className="mb-4">
-                                <img className="w-12 h-12 rounded-full mx-auto" src="https://wpklik.com/wp-content/uploads/2019/03/A-404-Page-Best-Practices-and-Design-Inspiration.jpg" alt="Testimonial 3" />
+                                <img className="w-12 h-12 rounded-full mx-auto" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQkdPUrvq_PqcJ6xThm45NFBRnGYPElU28gAw&usqp=CAU" alt="Testimonial 3" />
                             </div>
                             <h3 className="text-xl font-bold mb-2 text-gray-800 dark:text-gray-200">Sarah Johnson</h3>
                             <p className="text-teal-900 dark:text-teal-500">"Curabitur efficitur gravida augue, ut facilisis ex blandit sit amet. Nam eget nulla auctor, commodo elit et, rutrum urna."</p>
