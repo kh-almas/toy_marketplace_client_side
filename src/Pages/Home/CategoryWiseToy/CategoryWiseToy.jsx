@@ -15,7 +15,7 @@ const CategoryWiseToy = () => {
     ];
 
     useEffect(() => {
-        fetch(`http://localhost:3000/single/toys/${findCategoryData}`)
+        fetch(`http://localhost:3000/category-toy/${findCategoryData}`)
             .then(res => res.json())
             .then(data => setToy(data))
     }, [findCategoryData])

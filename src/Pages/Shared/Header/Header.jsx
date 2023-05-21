@@ -42,7 +42,7 @@ const Header = () => {
                         <li><Link to={'/'}>Home</Link></li>
                         <li><Link to={'/all-toys'}>All Toys</Link></li>
                         <li><Link to={'/my-toys'}>My Toys</Link></li>
-                        <li><a>Blogs</a></li>
+                        <li><Link to="/blog">Blogs</Link></li>
                         <li tabIndex={0} className="z-50">
                             <a className="justify-between">
                                 Add
