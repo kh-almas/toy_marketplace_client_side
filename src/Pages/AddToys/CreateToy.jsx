@@ -58,7 +58,7 @@ const CreateToy = () => {
         }
 
         const sellerEmail = user.email;
-        const sellerName = user.email;
+        const sellerName = user.displayName;
 
         const info = {category, name, price, rating, quantity, brand, age, image, description, sellerEmail, sellerName}
 

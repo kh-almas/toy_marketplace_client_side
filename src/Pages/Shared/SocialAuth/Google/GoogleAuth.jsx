@@ -2,25 +2,19 @@ import React, {useContext} from 'react';
 import {AuthContext} from "../../../../Providers/AuthProvider.jsx";
 import { GoogleAuthProvider } from "firebase/auth";
 import { FaGoogle } from "react-icons/fa";
+import {useNavigate} from "react-router-dom";
 
-const GoogleAuth = () => {
+const GoogleAuth = ({from}) => {
     const {authWithGoogle, updateProfileInformation} = useContext(AuthContext);
+    const navigate = useNavigate();
 
 
     const googleAuthBtn = () => {
         authWithGoogle()
             .then((result) => {
-                // This gives you a Google Access Token. You can use it to access the Google API.
-                const credential = GoogleAuthProvider.credentialFromResult(result);
-                console.log(credential);
-                const token = credential.accessToken;
-                console.log(token);
-                // The signed-in user info.
-
                 const user = result.user;
                 updateProfileInformation(user , user.displayName, user.photoURL);
-                console.log(user);
-
+                navigate(from, { replace: true });
             }).catch((error) => {
                 // Handle Errors here.
                 const errorCode = error.code;

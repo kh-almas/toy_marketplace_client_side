@@ -7,6 +7,7 @@ const Registration = () => {
     const {userRegistration, updateProfileInformation} = useContext(AuthContext);
     const navigate = useNavigate();
 
+    const [message, setMessage] = useState('');
     const [name, setName] = useState('');
     const [nameError , setNameError] = useState('');
 
@@ -109,6 +110,7 @@ const Registration = () => {
     }
     const handelRegistration = (e) => {
         e.preventDefault();
+        setMessage('Please wait');
 
         if (name === ''){
             setNameError('Input required');
@@ -163,6 +165,7 @@ const Registration = () => {
                 </div>
                 <div className="w-1/2 p-8 text-gray-800 dark:text-gray-200">
                     <h2 className="text-2xl mb-4">User Registration</h2>
+                    <span className="dark:text-white text-gray-800">{message}</span>
                     <form onSubmit={handelRegistration}>
                         <div className="mb-4">
                             <label className="block text-gray-700 text-sm font-bold mb-2 text-gray-800 dark:text-gray-200" htmlFor="name">

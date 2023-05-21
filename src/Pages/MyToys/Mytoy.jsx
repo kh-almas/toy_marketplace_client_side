@@ -20,17 +20,20 @@ const Mytoy = () => {
     },[user, sortByPrice, isDelete])
 
     const deleteToy = id =>{
-        fetch(`http://localhost:3000/toy/${id}`,{
-            method:'DELETE'
-        })
-            .then(res => res.json())
-            .then(data => {
-                // deletedCount
-                if(data.deletedCount){
-                    setMessage('Toy deleted');
-                    setISDelete(!isDelete)
-                }
+        const conformation = confirm('Wanna delete this toy item?');
+        if(conformation === true){
+            fetch(`http://localhost:3000/toy/${id}`,{
+                method:'DELETE'
             })
+                .then(res => res.json())
+                .then(data => {
+                    // deletedCount
+                    if(data.deletedCount){
+                        setMessage('Toy deleted');
+                        setISDelete(!isDelete)
+                    }
+                })
+        }
     }
 
 
@@ -50,7 +53,7 @@ const Mytoy = () => {
     </>
     return (
         <div>
-            <small className="dark:text-white text-gray-900">{ message }</small>
+
             <div className="flex justify-end mb-4">
                 <Popover className="relative">
                     {({ open }) => (
@@ -81,6 +84,7 @@ const Mytoy = () => {
                     )}
                 </Popover>
             </div>
+            <div className="dark:text-white text-gray-900 text-center">{ message }</div>
             <div className="overflow-x-auto w-full -z-50">
                 <table className="table w-full">
                     {/* head */}

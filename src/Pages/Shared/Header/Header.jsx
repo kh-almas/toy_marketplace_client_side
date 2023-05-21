@@ -42,9 +42,12 @@ const Header = () => {
                     <ul className="menu menu-horizontal px-1">
                         <li><Link to={'/'}>Home</Link></li>
                         <li><Link to={'/all-toys'}>All Toys</Link></li>
-                        <li><Link to={'/my-toys'}>My Toys</Link></li>
                         <li><Link to="/blog">Blogs</Link></li>
-                        <li><Link to={'/create-toy'}>Add Toy</Link></li>
+                        {
+                            user? <><li><Link to={'/my-toys'}>My Toys</Link></li>
+                                <li><Link to={'/create-toy'}>Add Toy</Link></li></>
+                                : ''
+                        }
                     </ul>
                 </div>
             </div>

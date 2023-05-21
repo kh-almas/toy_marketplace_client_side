@@ -1,6 +1,5 @@
 import React, {useContext, useState} from 'react';
-import {FaGoogle} from "react-icons/fa";
-import {Link, useLocation, useNavigate, useNavigation} from "react-router-dom";
+import {Link, useLocation, useNavigate} from "react-router-dom";
 import GoogleAuth from "../Shared/SocialAuth/Google/GoogleAuth.jsx";
 import {AuthContext} from "../../Providers/AuthProvider.jsx";
 
@@ -8,6 +7,7 @@ const Login = () => {
     const { userLogin } = useContext(AuthContext);
     const navigate = useNavigate();
     const location = useLocation();
+    const from = location.state?.from?.pathname || '/';
     const userLoginMessage = location.state && location.state.message;
 
     const [message, setMassage] = useState('');
@@ -26,7 +26,7 @@ const Login = () => {
         userLogin(email, password)
             .then(() => {
                 setMassage('Login success');
-                navigate('/');
+                navigate(from, { replace: true });
             })
             .catch(e => {
                 setMassage("Email/Password doesn't match");
@@ -45,7 +45,7 @@ const Login = () => {
                     <div>
                         <h2 className="text-2xl mt-8">You can login with:</h2>
                         <div className="flex mt-4">
-                            <GoogleAuth />
+                            <GoogleAuth from={from}></GoogleAuth>
                         </div>
                     </div>
                 </div>

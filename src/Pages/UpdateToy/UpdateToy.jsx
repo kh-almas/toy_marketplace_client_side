@@ -4,17 +4,17 @@ import {useParams} from "react-router-dom";
 
 const UpdateToy = () => {
     const {id} = useParams();
-    console.log(id);
 
     const [message, setMessage] = useState('');
     const [toys, setToys] = useState('');
+    const [isUpdate, setIsUpdate] = useState(false);
 
 
     useEffect(()=> {
         fetch(`http://localhost:3000/single-toys/${id}`)
             .then(res => res.json())
             .then(data => setToys(data))
-    },[])
+    },[isUpdate])
 
     const handelSubmit = e => {
         e.preventDefault();
@@ -79,7 +79,7 @@ const UpdateToy = () => {
                     setMessage('something is wrong');
                 }
             })
-        form.reset();
+        setIsUpdate(!isUpdate);s
 
     }
     return (

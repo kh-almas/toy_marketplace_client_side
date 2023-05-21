@@ -1,7 +1,11 @@
-import React, {Fragment, useState} from 'react';
+import React, {Fragment, useContext, useState} from 'react';
 import {Dialog, Transition} from "@headlessui/react";
+import {AuthContext} from "../../Providers/AuthProvider.jsx";
+import {useNavigate} from "react-router-dom";
 
 const TableRow = ({toys}) => {
+    const {user} = useContext(AuthContext);
+    const navigate = useNavigate();
     const {age, brand, quantity, category, description, image, name, price, rating, sellerName, sellerEmail} = toys;
     const [isOpen, setIsOpen] = useState(false);
 
@@ -10,8 +14,15 @@ const TableRow = ({toys}) => {
     }
 
     function openModal() {
-        setIsOpen(true);
+        if(user){
+            setIsOpen(true);
+        }else {
+            console.log(user);
+            setIsOpen(false);
+            navigate('/login', { state: { message: 'You have to log in first to view details' } })
+        }
     }
+
     return (
         <>
             <tr>
@@ -34,9 +45,10 @@ const TableRow = ({toys}) => {
                 </td>
 
                 <td>{category}</td>
+                <td>{sellerName}</td>
                 <td>{brand}</td>
                 <td>{price}</td>
-                <td>{rating}</td>
+                <td>{quantity}</td>
                 <td>{age}</td>
                 <th>
                     <button onClick={openModal} className="btn btn-ghost btn-xs">details</button>
