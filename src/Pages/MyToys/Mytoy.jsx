@@ -10,8 +10,6 @@ const Mytoy = () => {
     const [sortByPrice, setSortBYPrice] = useState(0);
     const [message, setMessage] = useState('');
     const [isDelete, setISDelete] = useState(false);
-    const [isOpen, setIsOpen] = useState(false);
-    const [singleToys, setSingleToys] = useState({});
 
     useEffect(()=> {
         setIsLoading(true);
@@ -35,25 +33,6 @@ const Mytoy = () => {
             })
     }
 
-
-    function closeModal() {
-        setIsOpen(false)
-    }
-
-    function openModal(id) {
-        setIsOpen(true);
-        fetch(`http://localhost:3000/single/toys/${id}`)
-            .then(res => res.json())
-            .then(data => {
-                console.log(data[0]);
-                setSingleToys(data[0]);
-            })
-        // console.log(id);
-    }
-
-    const handelUpdateSubmit = (e) => {
-        e.preventDefault();
-    }
 
     const tableHeader = <>
         <th>
@@ -112,7 +91,7 @@ const Mytoy = () => {
                     </thead>
                     <tbody>
                     {
-                        toys.map(info => <TableRow key={info._id} openModal={openModal} deleteToy={deleteToy} toys={info}></TableRow>)
+                        toys.map(info => <TableRow key={info._id} deleteToy={deleteToy} toys={info}></TableRow>)
                     }
                     </tbody>
                     {/* foot */}
@@ -123,153 +102,6 @@ const Mytoy = () => {
                     </tfoot>
 
                 </table>
-                <div>
-                    <Transition appear show={isOpen} as={Fragment}>
-                        <Dialog as="div" className="relative z-10" onClose={closeModal}>
-                            <Transition.Child as={Fragment} enter="ease-out duration-300" enterFrom="opacity-0" enterTo="opacity-100" leave="ease-in duration-200" leaveFrom="opacity-100" leaveTo="opacity-0">
-                                <div className="fixed inset-0 bg-black bg-opacity-25" />
-                            </Transition.Child>
-
-                            <div className="fixed inset-0 overflow-y-auto">
-                                <div className="flex min-h-full items-center justify-center text-center">
-                                    <Transition.Child as={Fragment} enter="ease-out duration-300" enterFrom="opacity-0 scale-95" enterTo="opacity-100 scale-100" leave="ease-in duration-200" leaveFrom="opacity-100 scale-100" leaveTo="opacity-0 scale-95">
-                                        <Dialog.Panel className="w-full lg:w-2/5 sm:w-3/5  transform overflow-hidden rounded-2xl bg-white text-left align-middle shadow-xl transition-all">
-
-
-
-                                            <div className="flex items-center justify-center bg-cover bg-center min-h-screen">
-                                                <div className="w-full p-8 text-gray-800 ">
-                                                    <h2 className="text-2xl mb-4">Update toys</h2>
-                                                    <form onSubmit={() => handelUpdateSubmit(singleToys?._id)}>
-                                                        <div className="text-center">
-                                                            <small className="text-white"></small>
-                                                        </div>
-                                                        <div className="mb-4">
-                                                            <label className="block text-gray-700 text-sm font-bold mb-2 text-gray-800" htmlFor="name">
-                                                                Name
-                                                            </label>
-                                                            <input
-                                                                className="shadow appearance-none border rounded w-full py-2 px-3 border-gray-300 dark:border-gray-600 text-gray-800 dark:text-gray-200 bg-white dark:bg-gray-700 focus:border-teal-500 focus:shadow-outline"
-                                                                id="name"
-                                                                name="name"
-                                                                defaultValue={singleToys?.name}
-                                                                type="text"
-                                                                placeholder="Enter your name"
-                                                            />
-                                                        </div>
-                                                        <div className="grid md:grid-cols-3 gap-4">
-                                                            <div className="mb-4">
-                                                                <label className="block text-gray-700 text-sm font-bold mb-2 text-gray-800" htmlFor="price">
-                                                                    Price
-                                                                </label>
-                                                                <input
-                                                                    className="shadow appearance-none border rounded w-full py-2 px-3 border-gray-300 dark:border-gray-600 text-gray-800 dark:text-gray-200 bg-white dark:bg-gray-700 focus:border-teal-500 focus:shadow-outline"
-                                                                    id="price"
-                                                                    name="price"
-                                                                    defaultValue={singleToys?.price}
-                                                                    type="number"
-                                                                    placeholder="Set a price"
-                                                                />
-                                                            </div>
-                                                            <div className="mb-4">
-                                                                <label className="block text-gray-700 text-sm font-bold mb-2 text-gray-800" htmlFor="rating">
-                                                                    Rating
-                                                                </label>
-                                                                <input
-                                                                    className="shadow appearance-none border rounded w-full py-2 px-3 border-gray-300 dark:border-gray-600 text-gray-800 dark:text-gray-200 bg-white dark:bg-gray-700 focus:border-teal-500 focus:shadow-outline"
-                                                                    id="rating"
-                                                                    name="rating"
-                                                                    defaultValue={singleToys?.rating}
-                                                                    type="number"
-                                                                    placeholder="Set ratings"
-                                                                />
-                                                            </div>
-                                                            <div className="mb-4">
-                                                                <label className="block text-gray-700 text-sm font-bold mb-2 text-gray-800" htmlFor="quantity">
-                                                                    Quantity
-                                                                </label>
-                                                                <input
-                                                                    className="shadow appearance-none border rounded w-full py-2 px-3 border-gray-300 dark:border-gray-600 text-gray-800 dark:text-gray-200 bg-white dark:bg-gray-700 focus:border-teal-500 focus:shadow-outline"
-                                                                    id="quantity"
-                                                                    name="quantity"
-                                                                    defaultValue={singleToys?.quantity}
-                                                                    type="number"
-                                                                    placeholder="Set quantity"
-                                                                />
-                                                            </div>
-                                                        </div>
-                                                        <div className="grid md:grid-cols-2 gap-4">
-                                                            <div className="mb-4">
-                                                                <label className="block text-gray-700 text-sm font-bold mb-2 text-gray-800" htmlFor="brand">
-                                                                    Brand
-                                                                </label>
-                                                                <input
-                                                                    className="shadow appearance-none border rounded w-full py-2 px-3 border-gray-300 dark:border-gray-600 text-gray-800 dark:text-gray-200 bg-white dark:bg-gray-700 focus:border-teal-500 focus:shadow-outline"
-                                                                    id="brand"
-                                                                    name="brand"
-                                                                    defaultValue={singleToys?.brand}
-                                                                    type="text"
-                                                                    placeholder="set a brand"
-                                                                />
-                                                            </div>
-                                                            <div className="mb-4">
-                                                                <label className="block text-gray-700 text-sm font-bold mb-2 text-gray-800" htmlFor="age">
-                                                                    Age range
-                                                                </label>
-                                                                <input
-                                                                    className="shadow appearance-none border rounded w-full py-2 px-3 border-gray-300 dark:border-gray-600 text-gray-800 dark:text-gray-200 bg-white dark:bg-gray-700 focus:border-teal-500 focus:shadow-outline"
-                                                                    id="age"
-                                                                    name="age"
-                                                                    defaultValue={singleToys?.age}
-                                                                    type="text"
-                                                                    placeholder="Enter your toy buyer age range"
-                                                                />
-                                                            </div>
-                                                        </div>
-                                                        <div className="mb-4">
-                                                            <label className="block text-gray-700 text-sm font-bold mb-2 text-gray-800" htmlFor="url">
-                                                                Image
-                                                            </label>
-                                                            <input
-                                                                className="shadow appearance-none border rounded w-full py-2 px-3 border-gray-300 dark:border-gray-600 text-gray-800 dark:text-gray-200 bg-white dark:bg-gray-700 focus:border-teal-500 focus:shadow-outline"
-                                                                id="url"
-                                                                name="image"
-                                                                defaultValue={singleToys?.image}
-                                                                type="url"
-                                                                placeholder="Enter your URL"
-                                                            />
-                                                        </div>
-                                                        <div className="mb-4">
-                                                            <label className="block text-gray-700 text-sm font-bold mb-2 text-gray-800" htmlFor="description">
-                                                                Description
-                                                            </label>
-                                                            <textarea id="description" name="description" defaultValue={singleToys?.description} placeholder="Bio" className="textarea border textarea-md w-full rounded border-gray-300 dark:border-gray-600 text-gray-800 dark:text-gray-200 bg-white dark:bg-gray-700 focus:border-teal-500 focus:shadow-outline" ></textarea>
-                                                        </div>
-                                                        <button
-                                                            className="w-full bg-teal-900 text-white hover:bg-teal-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-                                                            type="submit"
-                                                        >
-                                                            Add a toy
-                                                        </button>
-                                                    </form>
-                                                </div>
-                                            </div>
-
-
-
-
-                                            <div className="mt-4 flex justify-end mb-2 mr-2">
-                                                <button type="button" className="inline-flex justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2" onClick={closeModal}>
-                                                    Close
-                                                </button>
-                                            </div>
-                                        </Dialog.Panel>
-                                    </Transition.Child>
-                                </div>
-                            </div>
-                        </Dialog>
-                    </Transition>
-                </div>
             </div>
         </div>
     );
