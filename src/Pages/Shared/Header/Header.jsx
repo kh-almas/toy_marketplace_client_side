@@ -27,9 +27,10 @@ const Header = () => {
                         <img className="w-10 h-10 rounded-full mr-2" src={logo} alt="img"/> Cognitive Wonders
                     </Link>
                 </div>
+
                 <div className="navbar-center hidden lg:flex">
                     {
-                        user ? <><img className="w-6 h-6 rounded-full mr-2" src={user.photoURL} alt="img"/><button onClick={logOutBtn} className="btn btn-sm">log Out</button></>
+                        user ? <><div className="tooltip tooltip-bottom" data-tip={user.displayName}><img className="w-6 h-6 rounded-full mr-2" src={user.photoURL} alt="img"/></div><button onClick={logOutBtn} className="btn btn-sm">log Out</button></>
                             : <Link to={'/login'} className="btn btn-sm">login</Link>
                     }
 
@@ -43,16 +44,7 @@ const Header = () => {
                         <li><Link to={'/all-toys'}>All Toys</Link></li>
                         <li><Link to={'/my-toys'}>My Toys</Link></li>
                         <li><Link to="/blog">Blogs</Link></li>
-                        <li tabIndex={0} className="z-50">
-                            <a className="justify-between">
-                                Add
-                                <svg className="fill-current" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"/></svg>
-                            </a>
-                            <ul className="p-2 dark:bg-gray-900 bg-gray-100">
-                                <li><a>Category</a></li>
-                                <li><Link to={'/create-toy'}>Toy</Link></li>
-                            </ul>
-                        </li>
+                        <li><Link to={'/create-toy'}>Add Toy</Link></li>
                     </ul>
                 </div>
             </div>

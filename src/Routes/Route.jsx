@@ -9,12 +9,13 @@ import Mytoy from "../Pages/MyToys/Mytoy.jsx";
 import AllToy from "../Pages/AllToys/AllToy.jsx";
 import UpdateToy from "../Pages/UpdateToy/UpdateToy.jsx";
 import Blog from "../Pages/Blog/Blog.jsx";
+import NotFound from "../Pages/NotFound/NotFound.jsx";
 
 const router = createBrowserRouter([
     {
         path: "/",
         element: <Main />,
-        errorElement: <p>there have some error</p>,
+        errorElement: <NotFound />,
         children: [
             {
                 path: '/',
